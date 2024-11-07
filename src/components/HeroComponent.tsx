@@ -1,8 +1,8 @@
 const HeroComponent = () => {
 	return (
-		<div className="relative z-5">
+		<div className="relative z-5 h-[50vh] ">
 			<iframe
-				className="w-full  aspect-video "
+				className="w-full h-full  aspect-video "
 				// className=" w-full aspect-video"
 				src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1"
 				title="YouTube video player"
