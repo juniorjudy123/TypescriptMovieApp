@@ -2,8 +2,8 @@ import logo from "../assets/logo3.jpg"
 
 const NavBarComponent = () => {
 	return (
-		<div className="bg-black min-h-screen text-white text-sm">
-			<nav className="h-16 p-3 flex align items-center">
+		<div className="bg-black  text-white text-sm">
+			<nav className="h-16 p-3 flex items-center">
 				<div className="flex align items-center">
 					<img
 						className="w-16 h-auto rounded-full shadow-lg transition-transform transform hover:scale-110"
