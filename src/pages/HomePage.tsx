@@ -1,6 +1,6 @@
 import HeroComponent from "../components/HeroComponent"
 import MovieCardComponent from "../components/MovieCardComponent"
-import NavBarComponent from "../components/NavBarComponent"
+import NavBarComponent from "../components/HeaderComponent"
 
 const HomePage = () => {
 	return (

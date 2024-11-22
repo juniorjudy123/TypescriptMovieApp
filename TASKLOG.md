@@ -5,4 +5,8 @@
   -connect our store to our app (using provider)
   -create Slice (in redux store)
   -use selector to read data
+
+  # Home page component
+
+  - Hero component added
   -
