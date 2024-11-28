@@ -1,7 +1,7 @@
 import "./index.css"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Loginpage from "./pages/LoginPage"
-// import MainPage from "./pages/MainPage"
+import MainPage from "./pages/MainPage"
 
 function App() {
 	const appRouter = createBrowserRouter([
@@ -9,10 +9,14 @@ function App() {
 			path: "/",
 			element: <Loginpage />,
 		},
-		// {
-		// 	path: "/browse",
-		// 	element: <MainPage />,
-		// },
+		{
+			path: "/browse",
+			element: <MainPage />,
+		},
+		{
+			path: "/movieDetail",
+			element: <movieDetail />,
+		},
 	])
 	return (
 		<div>

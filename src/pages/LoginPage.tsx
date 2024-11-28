@@ -1,4 +1,3 @@
-import React from "react"
 import bgimg from "../assets/login-bg.jpg"
 import HeaderComponent from "../components/HeaderComponent"
 
