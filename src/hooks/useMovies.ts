@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { API_options } from "../utils/constants"
 import { useDispatch } from "react-redux"
 import {
+	addMovieDetails,
 	addNowPlayingMovies,
 	addPopularMovies,
 	addTopRatedMovies,
@@ -27,6 +28,8 @@ const useMovies = (url) => {
 				dispatch(addTopRatedMovies(json.results))
 			} else if (url.toLowerCase().includes("now_playing")) {
 				dispatch(addNowPlayingMovies(json.results))
+			} else if (url.toLowerCase().includes("/movie/")) {
+				dispatch(addMovieDetails(json.results))
 			}
 		} catch (error) {
 			setError(error.message)

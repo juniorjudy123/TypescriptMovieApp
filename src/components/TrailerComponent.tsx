@@ -2,9 +2,10 @@ import { useSelector } from "react-redux"
 import useTrailerVideo from "../hooks/useTrailerVideo"
 
 const TrailerComponent = ({ movieId }) => {
-	const trailer = useSelector((store) => store.movies?.trailerVideo)
-
 	useTrailerVideo(movieId)
+
+	// subscribing to the store which is now updated by the useTrailerVideo hook
+	const trailer = useSelector((store) => store.movies?.trailerVideo)
 
 	return (
 		<div className="w-screen relative">
@@ -13,7 +14,9 @@ const TrailerComponent = ({ movieId }) => {
 				src={
 					"https://www.youtube.com/embed/" +
 					trailer?.key +
-					"?&autoplay=1&mute=1"
+					"?&autoplay=1&mute=1&playlist=" +
+					trailer?.key +
+					"&loop=1"
 				}
 				title="YouTube video player"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

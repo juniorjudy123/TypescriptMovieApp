@@ -2,6 +2,7 @@ import "./index.css"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Loginpage from "./pages/LoginPage"
 import MainPage from "./pages/MainPage"
+import MovieDetailsPage from "./pages/MovieDetailPage"
 
 function App() {
 	const appRouter = createBrowserRouter([
@@ -14,8 +15,8 @@ function App() {
 			element: <MainPage />,
 		},
 		{
-			path: "/movieDetail",
-			element: <movieDetail />,
+			path: "/movie/:id",
+			element: <MovieDetailsPage />,
 		},
 	])
 	return (
