@@ -17,7 +17,7 @@ const useMovies = (url) => {
 		try {
 			const data = await fetch(url, API_options)
 			const json = await data.json()
-			console.log("movies", json.results)
+			// console.log("movies", json.results)
 
 			//trick
 			if (url.toLowerCase().includes("popular")) {

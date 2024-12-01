@@ -1,11 +1,11 @@
+import { useParams } from "react-router-dom"
 import HeaderComponent from "../components/HeaderComponent"
-import useMovies from "../hooks/useMovies"
 import MovieInfoComponent from "../components/MovieInfoComponent"
+import useMovieDetails from "../hooks/useMovieDetails"
 
 const MovieDetailsPage = () => {
-	useMovieDetails(
-		"https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1"
-	)
+	const { id } = useParams()
+	useMovieDetails(`https://api.themoviedb.org/3/movie/${id}?language=en-US`)
 	return (
 		<div>
 			<HeaderComponent />

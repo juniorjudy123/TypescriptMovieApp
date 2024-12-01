@@ -11,8 +11,7 @@ const useMovieDetails = (url) => {
 		try {
 			const data = await fetch(url, API_options)
 			const json = await data.json()
-			console.log("movies", json.results)
-			dispatch(addMovieDetails(json.results))
+			dispatch(addMovieDetails(json))
 		} catch (error) {
 			setError(error.message)
 		} finally {
