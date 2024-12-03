@@ -12,7 +12,7 @@ const HeaderComponent = () => {
 				<ul className="flex space-x-10 ml-16  align items-center text-white">
 					<li>Home</li>
 					<li>Movies</li>
-					<li>Shows</li>
+					<li>TV shows</li>
 					<li className="pl-4 ">|</li>
 					<li>
 						<button className="button-2 px-2 py-2 m-1 border-1  rounded-full bg-gray-700 text-white font-medium  hover:bg-white hover:text-black hover:scale-105 active:scale-95 active:bg-[#0048d5] transition-all duration-200 text-sm ">

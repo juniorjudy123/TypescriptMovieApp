@@ -10,6 +10,7 @@ const moviesSlice = createSlice({
 		topRatedMovies: null,
 		trendingMovies: null,
 		movieDetails: null,
+		// isLoading:
 	},
 	reducers: {
 		addNowPlayingMovies: (state, action) => {

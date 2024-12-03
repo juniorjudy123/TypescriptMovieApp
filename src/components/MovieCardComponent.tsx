@@ -1,14 +1,15 @@
 import { useNavigate } from "react-router-dom"
 import { POSTER_URL } from "../utils/constants"
+import { MovieCardType } from "../types/MovieDetailType"
 
-const MovieCardComponent = ({ id, posterpath }) => {
+const MovieCardComponent = ({ id, poster_path }: MovieCardType) => {
 	const navigate = useNavigate()
 	const handleClick = () => {
 		navigate(`/movie/${id}`)
 	}
 	return (
-		<div className="w-52 pr-4 cursor-pointer " onClick={handleClick}>
-			<img alt="movieCard" src={POSTER_URL + posterpath}></img>
+		<div className="w-52 pr-2 cursor-pointer " onClick={handleClick}>
+			<img alt="movieCard" src={POSTER_URL + poster_path} />
 		</div>
 	)
 }

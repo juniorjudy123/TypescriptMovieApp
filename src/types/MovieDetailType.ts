@@ -4,14 +4,24 @@ export interface MovieListTypes {
 	genre_ids: number[]
 
 	id: number
-	original_language: "en"
-	original_title: "Venom: The Last Dance"
-	overview: "Eddie and Venom are on the run. Hunted by both of their worlds and with the net closing in, the duo are forced into a devastating decision that will bring the curtains down on Venom and Eddie's last dance."
-	popularity: 3047.508
-	poster_path: "/aosm8NMQ3UyoBVpSxyimorCQykC.jpg"
-	release_date: "2024-10-22"
-	title: "Venom: The Last Dance"
-	video: false
-	vote_average: 6.495
-	vote_count: 798
+	original_language: string
+	original_title: string
+	overview: string
+	popularity: number
+	poster_path: URL
+	release_date: string
+	title: string
+	video: boolean
+	vote_average: number
+	vote_count: number
+}
+
+export interface MovieDetailTypes {
+	title: string
+	movies: MovieDetailTypes[]
+}
+
+export interface MovieCardType {
+	id?: number
+	poster_path?: URL | string
 }
