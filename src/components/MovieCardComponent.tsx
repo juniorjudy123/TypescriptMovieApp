@@ -8,7 +8,7 @@ const MovieCardComponent = ({ id, poster_path }: MovieCardType) => {
 		navigate(`/movie/${id}`)
 	}
 	return (
-		<div className="w-52 pr-2 cursor-pointer " onClick={handleClick}>
+		<div className="w-52 pl-1 pr-1 cursor-pointer " onClick={handleClick}>
 			<img alt="movieCard" src={POSTER_URL + poster_path} />
 		</div>
 	)
