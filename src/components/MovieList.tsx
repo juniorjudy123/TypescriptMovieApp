@@ -8,9 +8,8 @@ import {
 import { Link } from "react-router-dom"
 
 const MovieList = ({ title, movies }: MovieDetailTypes) => {
-	// console.log(title)
-	// console.log("checking movies", movies)
-	// if (!movies) return // early return
+	console.log("checking movies", movies)
+	if (!movies) return // early return
 
 	return (
 		<div className=" px-3">
@@ -26,7 +25,7 @@ const MovieList = ({ title, movies }: MovieDetailTypes) => {
 			<div className="flex overflow-x-scroll">
 				<div className="flex">
 					{movies?.map(({ id, poster_path }: any) => (
-						<MovieCardComponent id={id} poster_path={poster_path} />
+						<MovieCardComponent key={id} id={id} poster_path={poster_path} />
 					))}
 					{/* movies?.map(({ id, poster_path }:any) => {
   if (!id || !poster_path) return null; // Handle missing properties

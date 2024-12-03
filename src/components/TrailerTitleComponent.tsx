@@ -2,7 +2,7 @@ import React from "react"
 
 const TrailerTitleComponent = ({ title, description }) => {
 	return (
-		<div className="w-screen  aspect-video top-2 absolute pt-[20%] px-12 text-white bg-gradient-to-r from-black">
+		<div className="w-screen  aspect-video top-2 absolute pt-[20%] px-12 text-white bg-gradient-to-r from-black  mt-[-120px]">
 			<h1 className="text-4xl font-bold ">{title}</h1>
 			<p className=" text-lg w-1/4 my-5 pt-5">{description}</p>
 			<div className="mt-4">

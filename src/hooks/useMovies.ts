@@ -13,6 +13,7 @@ const useMovies = (url) => {
 	const dispatch = useDispatch()
 	const [error, setError] = useState(null)
 	const [loading, setLoading] = useState(false)
+
 	const getMovies = async () => {
 		setError(null)
 		setLoading(true)
