@@ -14,7 +14,7 @@ const MainPage = () => {
 	useMovies("https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1")
 
 	return (
-		<div>
+		<div className="overflow-x-hidden">
 			<HeaderComponent />
 			<HeroComponent />
 			<SecondaryComponent />

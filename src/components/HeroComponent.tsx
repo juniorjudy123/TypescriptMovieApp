@@ -12,7 +12,7 @@ const HeroComponent = () => {
 	const { original_title, overview, id } = playingTrailer
 
 	return (
-		<div>
+		<div className="relative w-full overflow-hidden">
 			<TrailerComponent movieId={id} />
 			<TrailerTitleComponent title={original_title} description={overview} />
 		</div>
