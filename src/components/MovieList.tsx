@@ -5,6 +5,7 @@ import {
 	MovieDetailTypes,
 	MovieCardType,
 } from "../types/MovieDetailType"
+import { Link } from "react-router-dom"
 
 const MovieList = ({ title, movies }: MovieDetailTypes) => {
 	// console.log(title)
@@ -15,9 +16,12 @@ const MovieList = ({ title, movies }: MovieDetailTypes) => {
 		<div className=" px-3">
 			<div className="flex  items-center justify-between ">
 				<h1 className="text-2xl py-2   text-white">{title}</h1>
-				<span className="text-yellow-400 py-2 mr-10 cursor-pointer hover:underline hover:text-yellow-200 transition duration-200 ease-in-out text-lg">
+				<Link
+					to="/movies"
+					className="text-yellow-400 py-2 mr-10 cursor-pointer hover:underline hover:text-yellow-200 transition duration-200 ease-in-out text-lg"
+				>
 					see more{" "}
-				</span>
+				</Link>
 			</div>
 			<div className="flex overflow-x-scroll">
 				<div className="flex">

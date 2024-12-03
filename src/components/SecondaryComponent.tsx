@@ -7,7 +7,7 @@ const SecondaryComponent = () => {
 	console.log(nowPlayingMovies)
 
 	return (
-		<div className="bg-black">
+		<div className="bg-black ">
 			<div className="-mt-52 relative z-10">
 				<MovieList title="Now Playing" movies={nowPlayingMovies} />
 				<MovieList title="Upcoming Movies" movies={upcomingMovies} />
