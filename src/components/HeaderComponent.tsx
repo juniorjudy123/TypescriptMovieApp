@@ -2,7 +2,7 @@ import movieapplogo from "../assets/movieapplogo.jpg"
 
 const HeaderComponent = () => {
 	return (
-		<div className=" px-8 py-1 bg-gradient-to-b from-black w-full flex justify-between absolute z-10">
+		<div className=" px-8 py-1 bg-gradient-to-b from-black w-full flex justify-between fixed top-0 left-0  z-20">
 			<div className="flex">
 				<img
 					src={movieapplogo}
