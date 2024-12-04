@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useSelector } from "react-redux"
 import VideoBg from "../assets/bg-gradient.mov"
 import movieclapperimg from "../assets/movie.png"
+import movieapplogo from "../assets/movieapplogo.jpg"
 
 const MovieInfoComponent = () => {
 	const [playTrailer, setPlayTrailer] = useState(false)
@@ -34,7 +35,7 @@ const MovieInfoComponent = () => {
 				/>
 			</div>
 			{/* Centered Box */}
-			<div className="flex  p-10 items-center h-screen relative z-10 opacity-75">
+			<div className="flex  p-10 items-center h-screen relative z-10 opacity-85">
 				{/* Overlapping Card */}
 				<div className="bg-gray-800 shadow-lg rounded-lg w-3/4 md:w-1/2 lg:w-1/3 z-20 p-4">
 					<div
@@ -77,6 +78,11 @@ const MovieInfoComponent = () => {
 								frameBorder="0"
 							></iframe>
 						)}
+						<img
+							src={movieapplogo}
+							className=" opacity-90 w-20 rounded-full p-5 absolute bottom-1  right-1  z-10"
+							alt="movieapp-logo"
+						></img>
 					</div>
 					{/* Card Content */}
 					<div className="p-4">

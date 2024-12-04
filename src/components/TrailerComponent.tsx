@@ -10,7 +10,7 @@ const TrailerComponent = ({ movieId }) => {
 	return (
 		<div className="w-screen relative mt-[-120px]">
 			<iframe
-				className="w-screen aspect-video"
+				className="w-screen aspect-video "
 				src={
 					"https://www.youtube.com/embed/" +
 					trailer?.key +
@@ -22,6 +22,7 @@ const TrailerComponent = ({ movieId }) => {
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 				loading="lazy"
 			></iframe>
+			<div className="absolute bottom-0 left-0 w-full h-12 bg-black opacity-90"></div>
 		</div>
 	)
 }

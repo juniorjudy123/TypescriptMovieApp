@@ -54,8 +54,10 @@ const MovieList = ({ title, movies }: MovieDetailTypes) => {
 		<div className="px-3">
 			{/* Section Title */}
 			<div className="flex items-center justify-between">
-				<h1 className="text-2xl py-1 ml-3 text-white">{title}</h1>
-				<span className="text-yellow-400 py-1  mr-6 cursor-pointer hover:underline hover:text-yellow-200 transition duration-200 ease-in-out text-lg">
+				<h1 className="text-2xl py-1 ml-3 text-white font-sans font-medium">
+					{title}
+				</h1>
+				<span className="text-yellow-400 font-sans font-medium  py-1  mr-6 cursor-pointer hover:underline hover:text-yellow-200 transition duration-200 ease-in-out">
 					See more
 				</span>
 			</div>

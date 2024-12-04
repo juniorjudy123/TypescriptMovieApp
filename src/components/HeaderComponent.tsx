@@ -6,7 +6,7 @@ const HeaderComponent = () => {
 			<div className="flex">
 				<img
 					src={movieapplogo}
-					className="w-24 rounded-full p-1 mx-10 my-4 shadow-sm transition-transform transform hover:scale-110 cursor-pointer "
+					className="w-24 rounded-full p-2 mx-10 my-4 shadow-sm transition-transform transform hover:scale-110 cursor-pointer "
 					alt="movieapp-logo"
 				></img>
 				<ul className="flex space-x-10 ml-16  align items-center text-white">
