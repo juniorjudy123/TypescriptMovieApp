@@ -54,8 +54,8 @@ const MovieList = ({ title, movies }: MovieDetailTypes) => {
 		<div className="px-3">
 			{/* Section Title */}
 			<div className="flex items-center justify-between">
-				<h1 className="text-2xl py-2 m-1 text-white">{title}</h1>
-				<span className="text-yellow-400 py-2  mr-2 cursor-pointer hover:underline hover:text-yellow-200 transition duration-200 ease-in-out text-lg">
+				<h1 className="text-2xl py-1 ml-3 text-white">{title}</h1>
+				<span className="text-yellow-400 py-1  mr-6 cursor-pointer hover:underline hover:text-yellow-200 transition duration-200 ease-in-out text-lg">
 					See more
 				</span>
 			</div>
@@ -68,11 +68,11 @@ const MovieList = ({ title, movies }: MovieDetailTypes) => {
 					responsive={responsive}
 					ssr={true}
 					infinite={true}
-					autoPlay={false}
-					autoPlaySpeed={10000}
+					autoPlay={true}
+					autoPlaySpeed={8000}
 					keyBoardControl={true}
 					customTransition="all .5"
-					transitionDuration={500}
+					transitionDuration={1000}
 					containerClass="carousel-container"
 					removeArrowOnDeviceType={["tablet", "mobile"]}
 					dotListClass="custom-dot-list-style"
