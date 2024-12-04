@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import HeaderComponent from "../components/HeaderComponent"
 import HeroComponent from "../components/HeroComponent.tsx"
 import SecondaryComponent from "../components/SecondaryComponent.tsx"
