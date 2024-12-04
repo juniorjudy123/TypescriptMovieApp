@@ -85,7 +85,7 @@ const MovieInfoComponent = () => {
 						)}
 						<img
 							src={movieapplogo}
-							className=" opacity-90 w-20 rounded-full p-5 absolute bottom-1  right-1  z-10"
+							className=" opacity-90 w-20 rounded-full p-5 absolute bottom-6  right-2  z-10"
 							alt="movieapp-logo"
 						></img>
 						<div className="absolute bottom-0 left-0 w-full h-10 bg-black opacity-100"></div>
