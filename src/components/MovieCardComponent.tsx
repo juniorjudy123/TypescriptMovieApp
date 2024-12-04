@@ -8,8 +8,15 @@ const MovieCardComponent = ({ id, poster_path }: MovieCardType) => {
 		navigate(`/movie/${id}`)
 	}
 	return (
-		<div className="w-52 pl-1 pr-1 cursor-pointer " onClick={handleClick}>
-			<img alt="movieCard" src={POSTER_URL + poster_path} />
+		<div
+			className="w-53 h-60 pr-2 cursor-pointer rounded-xl overflow-hidden  transition-all transform hover:scale-90 hover:translate-y-[-10px] hover:shadow-xl"
+			onClick={handleClick}
+		>
+			<img
+				className="w-full h-54 object-fill rounded-xl p-1"
+				alt="movieCard"
+				src={POSTER_URL + poster_path}
+			/>
 		</div>
 	)
 }
