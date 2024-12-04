@@ -72,10 +72,15 @@ const MovieInfoComponent = () => {
 						) : (
 							<iframe
 								className="absolute top-0 left-0 w-full h-full"
-								src={`https://www.youtube.com/embed/${trailer?.key}?autoplay=1&mute=1`}
+								src={
+									"https://www.youtube.com/embed/" +
+									trailer?.key +
+									"?&autoplay=1&mute=1&playlist=" +
+									trailer?.key +
+									"&loop=1"
+								}
 								title="YouTube video player"
 								allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								frameBorder="0"
 							></iframe>
 						)}
 						<img
@@ -83,6 +88,8 @@ const MovieInfoComponent = () => {
 							className=" opacity-90 w-20 rounded-full p-5 absolute bottom-1  right-1  z-10"
 							alt="movieapp-logo"
 						></img>
+						<div className="absolute bottom-0 left-0 w-full h-10 bg-black opacity-100"></div>
+						<div className="absolute top-0 left-0 w-full h-14 bg-black opacity-100"></div>
 					</div>
 					{/* Card Content */}
 					<div className="p-4">
