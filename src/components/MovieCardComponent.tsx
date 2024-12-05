@@ -10,11 +10,11 @@ const MovieCardComponent = ({ id, poster_path }: MovieCardType) => {
 	}
 	return (
 		<div
-			className="relative w-53 h-60 pr-2 cursor-pointer rounded-xl overflow-hidden  transition-all transform hover:scale-90 hover:translate-y-[-10px] hover:shadow-xl"
+			className="relative w-54 h-72  pr-2 cursor-pointer rounded-xl overflow-hidden  transition-all transform hover:scale-90 hover:translate-y-[-10px] hover:shadow-xl"
 			onClick={handleClick}
 		>
 			<img
-				className="w-full h-54 object-fill rounded-xl p-1 absolute"
+				className="w-full  object-fill rounded-xl absolute mx-1 px-1"
 				alt="movieCard"
 				src={POSTER_URL + poster_path}
 			/>

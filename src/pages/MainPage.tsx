@@ -12,6 +12,7 @@ const MainPage = () => {
 		"https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1"
 	)
 	useMovies("https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1")
+	useMovies("https://api.themoviedb.org/3/trending/movie/day?language=en-US")
 
 	return (
 		<div className="overflow-x-hidden">

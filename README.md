@@ -21,3 +21,8 @@ or https://www.npmjs.com/package/react-multi-carousel
 - created homepage
 - created Navbarcomponent and imported it to homepage
   -created a hero component for displaying video (can i add multiple videos like pictures in carousel)
+
+  # ALL movies page
+
+- created all movies page
+  -     created hook for fetch movies by category

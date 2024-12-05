@@ -6,6 +6,7 @@ import {
 	addNowPlayingMovies,
 	addPopularMovies,
 	addTopRatedMovies,
+	addTrendingMovies,
 	addUpcomingMovies,
 } from "../utils/slices/moviesSlice"
 
@@ -33,6 +34,8 @@ const useMovies = (url) => {
 				dispatch(addNowPlayingMovies(json.results))
 			} else if (url.toLowerCase().includes("/movie/")) {
 				dispatch(addMovieDetails(json.results))
+			} else if (url.toLowerCase().includes("trending")) {
+				dispatch(addTrendingMovies(json.results))
 			}
 		} catch (error) {
 			setError(error.message)
