@@ -4,6 +4,7 @@ import Loginpage from "./pages/LoginPage"
 import MainPage from "./pages/MainPage"
 import MovieDetailsPage from "./pages/MovieDetailPage"
 import MovieListPage from "./pages/MovieListPage"
+import AllMoviesPage from "./pages/AllMoviesPage"
 
 function App() {
 	const appRouter = createBrowserRouter([
@@ -22,6 +23,10 @@ function App() {
 		{
 			path: "/movies",
 			element: <MovieListPage />,
+		},
+		{
+			path: "/all-movies",
+			element: <AllMoviesPage />,
 		},
 	])
 	return (

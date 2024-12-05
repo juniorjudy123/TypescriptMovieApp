@@ -7,6 +7,7 @@ import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 import MovieCardComponent from "./MovieCardComponent"
 import { MovieDetailTypes } from "../types/MovieDetailType"
+import { useNavigate } from "react-router-dom"
 
 const responsive = {
 	desktop: {
@@ -49,7 +50,11 @@ const CustomRightArrow = ({ onClick }) => (
 )
 
 const MovieList = ({ title, movies }: MovieDetailTypes) => {
+	const navigate = useNavigate()
 	if (!movies) return null // early return if no movies
+	const handleSeeMoreClick = () => {
+		navigate(`/all-movies?category=${category}`) // doubt
+	}
 	return (
 		<div className="px-3">
 			{/* Section Title */}
@@ -58,7 +63,7 @@ const MovieList = ({ title, movies }: MovieDetailTypes) => {
 					{title}
 				</h1>
 				<span
-					onclic
+					onclick={handleSeeMoreClick}
 					className="text-yellow-400 font-sans font-medium  py-1  mr-6 cursor-pointer hover:underline hover:text-yellow-200 transition duration-200 ease-in-out"
 				>
 					See more
