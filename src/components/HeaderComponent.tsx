@@ -4,14 +4,14 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 
 const HeaderComponent = () => {
 	return (
-		<div className=" px-5 py-1 bg-gradient-to-b from-black w-full flex justify-between fixed top-0 left-0  z-20">
+		<div className=" px-5  bg-gradient-to-b from-black w-full flex justify-between fixed top-0 left-0  z-20">
 			<div className="flex">
 				<img
 					src={movieapplogo}
 					className="w-24 rounded-full p-2 mx-10 my-4 shadow-sm transition-transform transform hover:scale-110 cursor-pointer "
 					alt="movieapp-logo"
 				></img>
-				<ul className="flex space-x-12 ml-10  align items-center text-white">
+				<ul className="flex space-x-8 ml-10  align items-center text-white">
 					<li className="font-sans font-medium">Home</li>
 					<li className="font-sans font-medium">Movies</li>
 					<li className="font-sans font-medium">TV shows</li>
@@ -24,12 +24,12 @@ const HeaderComponent = () => {
 				</ul>
 			</div>
 
-			<ul className="flex space-x-12 ml-16 items-center text-white">
+			<ul className="flex space-x-8 ml-14  mr-8 items-center text-white">
 				<li>
-					<FontAwesomeIcon icon={faMagnifyingGlass} className="text-xl" />
+					<FontAwesomeIcon icon={faMagnifyingGlass} className="text-md" />
 				</li>
 				<li>
-					<span className="material-symbols-outlined text-2xl text-gray-300">
+					<span className="material-symbols-outlined text-md text-gray-300">
 						lists
 					</span>
 				</li>

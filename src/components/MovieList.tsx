@@ -11,8 +11,8 @@ import { MovieDetailTypes } from "../types/MovieDetailType"
 const responsive = {
 	desktop: {
 		breakpoint: { max: 3000, min: 1024 },
-		items: 8,
-		slidesToSlide: 8, // Adjust based on preference
+		items: 7,
+		slidesToSlide: 7, // Adjust based on preference
 	},
 	tablet: {
 		breakpoint: { max: 1024, min: 464 },
@@ -54,10 +54,13 @@ const MovieList = ({ title, movies }: MovieDetailTypes) => {
 		<div className="px-3">
 			{/* Section Title */}
 			<div className="flex items-center justify-between">
-				<h1 className="text-2xl py-1 ml-3 text-white font-sans font-medium">
+				<h1 className="text-xl py-1 ml-3 text-white font-sans font-semibold">
 					{title}
 				</h1>
-				<span className="text-yellow-400 font-sans font-medium  py-1  mr-6 cursor-pointer hover:underline hover:text-yellow-200 transition duration-200 ease-in-out">
+				<span
+					onclic
+					className="text-yellow-400 font-sans font-medium  py-1  mr-6 cursor-pointer hover:underline hover:text-yellow-200 transition duration-200 ease-in-out"
+				>
 					See more
 				</span>
 			</div>
