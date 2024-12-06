@@ -138,15 +138,27 @@ function App() {
 					<option value="romance">Romance</option>
 				</select>
 				<h2 className="text-2xl font-semibold  text-gray-100  mt-12">
-					Content Type{" "}
+					Content{" "}
 				</h2>
 				<select
 					id="genre-select"
 					className="mt-4 w-full p-3  bg-gray-600  text-gray-100 rounded-md"
 					onChange={(e) => setSelectedGenre(e.target.value)}
 				>
-					<option value="action">Movies</option>
-					<option value="comedy">TV</option>
+					<option value="movies">Movies</option>
+					<option value="tv">TV</option>
+				</select>
+				<h2 className="text-2xl font-semibold  text-gray-100  mt-12">
+					Ratings{" "}
+				</h2>
+				<select
+					id="genre-select"
+					className="mt-4 w-full p-3  bg-gray-600  text-gray-100 rounded-md"
+					onChange={(e) => setSelectedGenre(e.target.value)}
+				>
+					<option value="all">All</option>
+					<option value="8+">8+</option>
+					<option value="7+">7+</option>
 				</select>
 			</div>
 
