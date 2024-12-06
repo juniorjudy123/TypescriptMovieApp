@@ -8,9 +8,9 @@ const TrailerComponent = ({ movieId }) => {
 	const trailer = useSelector((store) => store.movies?.trailerVideo)
 
 	return (
-		<div className="w-screen relative mt-[-130px]">
+		<div className="w-screen relative mt-[-200px]">
 			<iframe
-				className="w-screen aspect-video "
+				className="w-screen aspect-video  "
 				src={
 					"https://www.youtube.com/embed/" +
 					trailer?.key +
