@@ -9,7 +9,6 @@ const SecondaryComponent = () => {
 		upcomingMovies,
 		trendingMovies,
 	} = useSelector((store: any) => store.movies)
-	console.log(nowPlayingMovies)
 
 	return (
 		<div className="bg-black ">

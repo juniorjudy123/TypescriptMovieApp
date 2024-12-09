@@ -2,10 +2,15 @@ import movieapplogo from "../assets/movieapplogo.jpg"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 
-const HeaderComponent = () => {
+const HeaderComponent = ({ setSearchQuery, setIsSearch }) => {
 	const navigate = useNavigate()
 	const handleHomeClick = () => {
 		navigate("/browse")
+	}
+	const handleSearchChange = (e) => {
+		const query = e.target.value
+		setSearchQuery(query)
+		setIsSearch(query.length > 0)
 	}
 	return (
 		<div className=" px-5  bg-gradient-to-b from-black w-full flex justify-between fixed top-0 left-0  z-20">
@@ -17,7 +22,7 @@ const HeaderComponent = () => {
 					onClick={handleHomeClick}
 				></img>
 				<ul className="flex space-x-7 ml-3  align items-center text-white">
-					<li className="text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-r hover:from-gray-300 hover:via-gray-300 hover:to-gray-300 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 shadow-lg shadow-gray-500/50 dark:shadow-lg dark:shadow-gray-700/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300 opacity-70">
+					<li className="text-white bg-gradient-to-b from-gray-100 via-gray-600 to-gray-700 hover:bg-gradient-to-r hover:from-gray-300 hover:via-gray-300 hover:to-gray-300 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 shadow-lg shadow-gray-500/50 dark:shadow-lg dark:shadow-gray-700/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300 opacity-70">
 						<Link to="/browse"> Home</Link>
 					</li>
 					<li className=" font-medium font-sans text-sm ">Movies</li>
@@ -31,19 +36,21 @@ const HeaderComponent = () => {
 				</ul>
 			</div>
 
-			<ul className="flex space-x-4 ml-10 mr-8 items-center text-white ">
+			<ul className="flex space-x-4 ml-10 mr-20 items-center text-white ">
 				<li>
-					<div className="relative flex  justify-center overflow-hidden bg-gradient-to-brp-6 ">
-						<div className="bg-gray-800  relative rounded-3xl pt-1 pb-1 shadow-2xl ring-1 ring-gray-300/5 sm:mx-auto sm:max-w-xl sm:px-10 opacity-50">
+					<div className="relative flex  justify-center overflow-hidden bg-gradient-to-brp-6  mr-6">
+						<div className="  relative rounded-3xl pt-1 pb-1 shadow-2xl ring-1 ring-gray-300/5 sm:mx-auto sm:max-w-xl sm:px-10 ">
 							<div className="mx-auto max-w-md">
 								<form action="" className="relative mx-auto w-max">
 									<input
 										type="search"
-										className="peer cursor-pointer relative z-10 h-10 w-6 rounded-full border bg-transparent pl-10 outline-none  focus:w-full focus:cursor-text focus:border-gray-300 focus:pl-16 focus:pr-4"
+										onChange={handleSearchChange}
+										placeholder="Search for movies..."
+										className="peer p-1 cursor-pointer relative z-10 h-10 w-8 rounded-full border bg-transparent pl-10 outline-none focus:w-full focus:cursor-text focus:border-gray-200 focus:pl-16 focus:pr-4  focus:shadow-lg focus:ring-2 focus:ring-white"
 									/>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
-										className="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-gray-200 px-3.5 peer-focus:border-gray-200 peer-focus:stroke-gray-200"
+										className="absolute  inset-y-0 my-auto h-10 w-12 border-r border-transparent stroke-white  px-3.5 peer-focus:border-gray-200 peer-focus:stroke-gray-200"
 										fill="none"
 										viewBox="0 0 24 24"
 										stroke="currentColor"
