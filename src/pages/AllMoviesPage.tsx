@@ -65,6 +65,8 @@
 
 import React, { useState } from "react"
 import HeaderComponent from "../components/HeaderComponent"
+import { useSelector } from "react-redux"
+import useMovies from "../hooks/useMovies"
 
 // Mock movie data
 const movies = [
@@ -91,6 +93,13 @@ const movies = [
 ]
 
 function App() {
+	useMovies(
+		"https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1"
+	)
+	const movies1 = useSelector((store) => store.movies.nowPlayingMovies)
+	console.log(movies1)
+
+	const [selectContent, setSelectContent] = useState("all") // to work
 	const [selectedGenre, setSelectedGenre] = useState("all")
 	const [currentPage, setCurrentPage] = useState(1)
 	const moviesPerPage = 5
@@ -143,7 +152,7 @@ function App() {
 				<select
 					id="genre-select"
 					className="mt-4 w-full p-3  bg-gray-600  text-gray-100 rounded-md"
-					onChange={(e) => setSelectedGenre(e.target.value)}
+					onChange={(e) => setSelectContent(e.target.value)}
 				>
 					<option value="movies">Movies</option>
 					<option value="tv">TV</option>
@@ -204,7 +213,7 @@ function App() {
 								currentPage === index + 1
 									? "bg-blue-500 text-white"
 									: "bg-gray-200 text-gray-800"
-							} rounded-2xl hover:bg-gray-300`}
+							} rounded-xl hover:bg-gray-300`}
 						>
 							{index + 1}
 						</button>
