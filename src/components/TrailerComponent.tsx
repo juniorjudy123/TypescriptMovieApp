@@ -22,6 +22,7 @@ const TrailerComponent = ({ movieId }) => {
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 				loading="lazy"
 			></iframe>
+
 			<div className="absolute bottom-0 left-0 w-full h-12 bg-black opacity-90"></div>
 		</div>
 	)
