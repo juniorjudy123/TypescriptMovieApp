@@ -4,6 +4,7 @@ import { checkValidData } from "../utils/validation"
 import HeaderComponent from "../components/HeaderComponent"
 
 const Loginpage = () => {
+	const [isExpanded, setIsExpanded] = useState(false)
 	const [isSignIn, setIsSignIn] = useState(true)
 	const [errormessage, setErrorMessage] = useState()
 	const toggleSignInForm = () => {
@@ -22,6 +23,10 @@ const Loginpage = () => {
 		setErrorMessage(message)
 	}
 
+	const toggeExpand = () => {
+		setIsExpanded(!isExpanded)
+	}
+
 	return (
 		<div className="relative w-full h-screen overflow-hidden   ">
 			<img
@@ -35,66 +40,96 @@ const Loginpage = () => {
 				<form
 					onSubmit={(e) => e.preventDefault()}
 					typeof="text"
-					className=" absolute w-3/12 bg-black bg-opacity-80 p-7 my-36 mx-auto right-0 left-0 text-white flex flex-col rounded-md"
+					className=" absolute w-3/12 bg-black bg-opacity-85 p-5 my-36 mx-auto right-0 left-0 text-white flex flex-col  shadow-xl"
 				>
-					<h1 className="font-semibold text-3xl py-4">
-						{isSignIn ? "Sign In" : "Sign Up"}
-					</h1>
-					{!isSignIn && (
-						<input
-							ref={name}
-							type="text"
-							placeholder="Full Name"
-							className="p-3 my-2 rounded-sm w-full bg-gray-700"
-						/>
-					)}
-					<input
-						type="text"
-						ref={email}
-						placeholder="Email Address"
-						className="p-3 my-2 rounded-sm w-full bg-gray-700"
-					/>
-					<input
-						ref={password}
-						type="password"
-						placeholder="Password"
-						className="p-3 my-2 rounded-sm w-full  bg-gray-700"
-					/>
-					<p className="text-red-700 font-semibold text-lg py-2">
-						{errormessage}
-					</p>
-					<button
-						className="bg-red-700  my-4 p-2 w-full"
-						onClick={handleButtonClick}
-					>
-						{isSignIn ? "Login" : "Register"}
-					</button>
-					<p className="cursor-pointer my-4 p-2">
-						{isSignIn ? (
-							<>
-								New to netflix?
-								<span
-									onClick={toggleSignInForm}
-									className="text-blue-500 cursor-pointer"
-								>
-									{" "}
-									Sign up now
-								</span>
-							</>
-						) : (
-							<>
-								Already Registered.
-								<span
-									onClick={toggleSignInForm}
-									className="text-blue-500 cursor-pointer"
-								>
-									{" "}
-									Sign In
-								</span>
-							</>
+					<div className="p-15 m-6">
+						<h1 className="font-semibold text-3xl py-4">
+							{isSignIn ? "Sign In" : "Sign Up"}
+						</h1>
+						{!isSignIn && (
+							<input
+								ref={name}
+								type="text"
+								placeholder="Full Name"
+								className="p-4 my-3 w-full bg-gray-900 border border-slate-800  bg-opacity-80"
+							/>
 						)}
-					</p>
-					{/* <p>Use a sign-in code</p> */}
+						<input
+							type="text"
+							ref={email}
+							placeholder="Email Address"
+							className="p-3 my-3 w-full bg-gray-900  bg-opacity-80 border  border-slate-800"
+						/>
+						<input
+							ref={password}
+							type="password"
+							placeholder="Password"
+							className="p-3 my-3 w-full  bg-gray-900  bg-opacity-80 border  border-slate-800"
+						/>
+						<p className="text-red-700 font-semibold text-lg py-2">
+							{errormessage}
+						</p>
+						<button
+							className="bg-red-700  my-4 p-3 w-full rounded-lg"
+							onClick={handleButtonClick}
+						>
+							{isSignIn ? "Login" : "Register"}
+						</button>
+						<p className="cursor-pointer my-4 p-2">
+							{isSignIn ? (
+								<>
+									New to netflix?
+									<span
+										onClick={toggleSignInForm}
+										className="text-white font-bold cursor-pointer hover:underline "
+									>
+										{" "}
+										Sign up now
+									</span>
+								</>
+							) : (
+								<>
+									Already Registered.
+									<span
+										onClick={toggleSignInForm}
+										className="text-white font-bold cursor-pointer hover:underline "
+									>
+										{" "}
+										Sign In
+									</span>
+								</>
+							)}
+						</p>
+						<div className="py-2 ">
+							<p className="text-sm text-gray-400 font-normal">
+								This page is protected by Google reCAPTCHA to ensure you're not
+								a bot.{" "}
+								<span
+									className="text-blue-400  py-2 cursor-pointer hover:underline"
+									onClick={toggeExpand}
+								>
+									Learn more.
+								</span>
+							</p>
+
+							{isExpanded && (
+								<div className="mt-2 text-gray-400 text-sm">
+									<p>
+										The information collected by Google reCAPTCHA is subject to
+										the Google Privacy Policy and Terms of Service, and is used
+										for providing, maintaining, and improving the reCAPTCHA
+										service and for general security purposes (it is not used
+										for personalised advertising by Google).
+									</p>
+								</div>
+							)}
+							<div>
+								<p className="text-sm font-semibold font-serif text-gray-400 pt-3 ">
+									@Powered by GPT
+								</p>
+							</div>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
