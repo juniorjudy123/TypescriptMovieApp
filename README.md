@@ -26,3 +26,7 @@ or https://www.npmjs.com/package/react-multi-carousel
 
 - created all movies page
   -     created hook for fetch movies by category
+
+#Routing
+
+#form validation
