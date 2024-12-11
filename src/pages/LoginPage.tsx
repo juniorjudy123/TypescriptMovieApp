@@ -1,7 +1,12 @@
+import { useState } from "react"
 import bgimg from "../assets/login-bg.jpg"
 import HeaderComponent from "../components/HeaderComponent"
 
 const Loginpage = () => {
+	const [isSignIn, setIsSignIn] = useState(true)
+	const toggleSignInForm = () => {
+		setIsSignIn(!isSignIn)
+	}
 	return (
 		<div className="relative w-full h-screen overflow-hidden   ">
 			<img
@@ -14,25 +19,37 @@ const Loginpage = () => {
 			<div>
 				<form
 					typeof="text"
-					className=" absolute w-3/12 bg-black bg-opacity-60 p-8 my-36 mx-auto right-0 left-0 text-white flex flex-col rounded-md"
+					className=" absolute w-3/12 bg-black bg-opacity-80 p-7 my-36 mx-auto right-0 left-0 text-white flex flex-col rounded-md"
 				>
-					<h1 className="font-bold text-3xl p-4">Sign In</h1>
+					<h1 className="font-semibold text-3xl py-4">
+						{isSignIn ? "Sign In" : "Sign Up"}
+					</h1>
+					{!isSignIn && (
+						<input
+							type="text"
+							placeholder="Full Name"
+							className="p-3 my-2 rounded-sm w-full bg-gray-700"
+						/>
+					)}
 					<input
 						type="text"
 						placeholder="Email Address"
-						className="p-2 my-2 rounded-sm w-full bg-gray-700"
+						className="p-3 my-2 rounded-sm w-full bg-gray-700"
 					/>
 					<input
 						type="email"
 						placeholder="Password"
-						className="p-2 my-2 rounded-sm w-full  bg-gray-700"
+						className="p-3 my-2 rounded-sm w-full  bg-gray-700"
 					/>
-					<button className="bg-red-600  rounded-xl my-2 p-2 w-full">
-						Sign In
+					<button className="bg-red-700  my-4 p-2 w-full">
+						{isSignIn ? "Login" : "Register"}
 					</button>
-					<button className="bg-opacity-50 bg-black w-full rounded-xl my-2 p-2 ">
-						Use a sign-in code
-					</button>
+					<p onClick={toggleSignInForm} className="cursor-pointer my-4 p-2">
+						{isSignIn
+							? "New to netflix? signup now"
+							: "Already Registered.Sign In now"}
+					</p>
+					{/* <p>Use a sign-in code</p> */}
 				</form>
 			</div>
 		</div>
