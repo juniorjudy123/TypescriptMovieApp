@@ -1,8 +1,12 @@
 import movieapplogo from "../assets/movieapplogo.jpg"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { HeaderParameterTypes } from "../types/MovieDetailType"
 
-const HeaderComponent = ({ setSearchQuery, setIsSearch }) => {
+const HeaderComponent = ({
+	setSearchQuery,
+	setIsSearch,
+}: HeaderParameterTypes) => {
 	const navigate = useNavigate()
 	const handleHomeClick = () => {
 		navigate("/browse")

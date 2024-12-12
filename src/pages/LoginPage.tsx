@@ -1,23 +1,26 @@
 import { useRef, useState } from "react"
 import bgimg from "../assets/login-bg.jpg"
 import { checkValidData } from "../utils/validation"
-import HeaderComponent from "../components/HeaderComponent"
+
+import movieapplogo from "../assets/movieapplogo.jpg"
 
 const Loginpage = () => {
 	const [isExpanded, setIsExpanded] = useState(false)
 	const [isSignIn, setIsSignIn] = useState(true)
-	const [errormessage, setErrorMessage] = useState()
+	const [errormessage, setErrorMessage] = useState<string | undefined>(
+		undefined
+	)
 	const toggleSignInForm = () => {
 		setIsSignIn(!isSignIn)
 	}
-	const email = useRef(null)
-	const password = useRef(null)
-	const name = useRef(null)
+	const email = useRef<HTMLInputElement | null>(null)
+	const password = useRef<HTMLInputElement | null>(null) // Type it as HTMLInputElement
+	const name = useRef<HTMLInputElement | null>(null)
 
 	const handleButtonClick = () => {
-		const emailValue = email.current.value
-		const passwordValue = password.current.value
-		const nameValue = name.current.value
+		const emailValue = email.current?.value
+		const passwordValue = password.current?.value
+		const nameValue = name.current?.value
 		const message = checkValidData(emailValue, passwordValue, nameValue)
 		console.log(message)
 		setErrorMessage(message)
@@ -32,15 +35,22 @@ const Loginpage = () => {
 			<img
 				src={bgimg}
 				alt="bg-img"
-				className=" object-cover absolute w-full h-full  "
+				className=" object-cover absolute w-full h-full  mt-[-06px]  "
 			></img>
+
 			<div className="absolute inset-0 bg-black opacity-65"></div>
-			<HeaderComponent />
+			{/* <HeaderComponent /> */}
+			<img
+				src={movieapplogo}
+				className="w-24 rounded-full p-1 mx-12 my-5 shadow-lg transition-transform transform hover:scale-110 cursor-pointer opacity-90 absolute z-20 "
+				alt="movieapp-logo"
+			></img>
+
 			<div>
 				<form
 					onSubmit={(e) => e.preventDefault()}
 					typeof="text"
-					className=" absolute w-3/12 bg-black bg-opacity-85 p-5 my-36 mx-auto right-0 left-0 text-white flex flex-col  shadow-xl"
+					className=" absolute w-3/12 bg-black bg-opacity-80 p-5 my-36 mx-auto right-0 left-0 text-white flex flex-col  shadow-xl"
 				>
 					<div className="p-15 m-6">
 						<h1 className="font-semibold text-3xl py-4">
@@ -51,20 +61,20 @@ const Loginpage = () => {
 								ref={name}
 								type="text"
 								placeholder="Full Name"
-								className="p-4 my-3 w-full bg-gray-900 border border-slate-800  bg-opacity-80"
+								className="p-3 my-3 w-full bg-gray-900 border border-slate-700  bg-opacity-85"
 							/>
 						)}
 						<input
 							type="text"
 							ref={email}
 							placeholder="Email Address"
-							className="p-3 my-3 w-full bg-gray-900  bg-opacity-80 border  border-slate-800"
+							className="p-3 my-3 w-full bg-gray-900  bg-opacity-85 border  border-slate-700"
 						/>
 						<input
 							ref={password}
 							type="password"
 							placeholder="Password"
-							className="p-3 my-3 w-full  bg-gray-900  bg-opacity-80 border  border-slate-800"
+							className="p-3 my-3 w-full  bg-gray-900  bg-opacity-85 border  border-slate-700"
 						/>
 						<p className="text-red-700 font-semibold text-lg py-2">
 							{errormessage}
@@ -78,7 +88,7 @@ const Loginpage = () => {
 						<p className="cursor-pointer my-4 p-2">
 							{isSignIn ? (
 								<>
-									New to netflix?
+									New to Prime Movies?
 									<span
 										onClick={toggleSignInForm}
 										className="text-white font-bold cursor-pointer hover:underline "
@@ -94,7 +104,6 @@ const Loginpage = () => {
 										onClick={toggleSignInForm}
 										className="text-white font-bold cursor-pointer hover:underline "
 									>
-										{" "}
 										Sign In
 									</span>
 								</>

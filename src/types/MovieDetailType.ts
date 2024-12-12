@@ -25,3 +25,8 @@ export interface MovieCardType {
 	id?: number
 	poster_path?: URL | string
 }
+
+export interface HeaderParameterTypes {
+	setSearchQuery: string
+	setIsSearch: boolean
+}

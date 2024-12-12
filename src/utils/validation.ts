@@ -6,7 +6,7 @@ export const checkValidData = (email, password, name) => {
 	if (!emailPattern.test(email)) {
 		return "Invalid email format."
 	}
-	if (!name && !isSignIn) {
+	if (!name) {
 		return "Full name is required for sign up."
 	}
 	if (password.length < 6) {
