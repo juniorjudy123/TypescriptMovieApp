@@ -20,6 +20,15 @@ export default {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'], // Add Roboto to the fontFamily
       },
+      animation: {
+        blink: 'blink 3s infinite', // Adds a custom blink animation
+      },
+      keyframes: {
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
+      },
     },
   },
   plugins: [],

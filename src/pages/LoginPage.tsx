@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import bgimg from "../assets/login-bg.jpg"
 import { checkValidData } from "../utils/validation"
+import googleGemini from "../assets/google gemini.png"
 
 import movieapplogo from "../assets/movieapplogo.jpg"
 
@@ -85,7 +86,7 @@ const Loginpage = () => {
 						>
 							{isSignIn ? "Login" : "Register"}
 						</button>
-						<p className="cursor-pointer my-4 p-2">
+						<p className="cursor-pointer my-3 p-2">
 							{isSignIn ? (
 								<>
 									New to Prime Movies?
@@ -109,7 +110,7 @@ const Loginpage = () => {
 								</>
 							)}
 						</p>
-						<div className="py-2 ">
+						<div className="py-1 ">
 							<p className="text-sm text-gray-400 font-normal">
 								This page is protected by Google reCAPTCHA to ensure you're not
 								a bot.{" "}
@@ -132,10 +133,15 @@ const Loginpage = () => {
 									</p>
 								</div>
 							)}
-							<div>
+							<div className="flex flex-row mt-2">
 								<p className="text-sm font-semibold font-serif text-gray-400 pt-3 ">
-									@Powered by GPT
+									@Powered by Google Gemini
 								</p>
+								<img
+									src={googleGemini}
+									alt="gemini-img"
+									className="w-12 h-8 shadow-lg bg-transparent animate-blink"
+								/>
 							</div>
 						</div>
 					</div>
