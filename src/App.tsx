@@ -25,7 +25,7 @@ function App() {
 			element: <MovieListPage />,
 		},
 		{
-			path: "/all-movies",
+			path: "/all-movies/:category",
 			element: <AllMoviesPage />,
 		},
 	])

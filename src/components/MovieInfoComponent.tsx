@@ -3,11 +3,14 @@ import { useSelector } from "react-redux"
 import VideoBg from "../assets/bg-gradient.mov"
 import movieclapperimg from "../assets/movie.png"
 import movieapplogo from "../assets/movieapplogo.jpg"
+import { RootState } from "../utils/appStore"
 
 const MovieInfoComponent = () => {
 	const [playTrailer, setPlayTrailer] = useState(false)
-	const movieDetails = useSelector((store) => store.movies.movieDetails)
-	const trailer = useSelector((store) => store.movies?.trailerVideo)
+	const movieDetails = useSelector(
+		(store: RootState) => store.movies.movieDetails
+	)
+	const trailer = useSelector((store: RootState) => store.movies?.trailerVideo)
 
 	if (!movieDetails)
 		return <div className="text-white text-center">Loading...</div>
@@ -16,7 +19,6 @@ const MovieInfoComponent = () => {
 		genres,
 		overview,
 		origin_country,
-		poster_path,
 		release_date,
 		vote_average,
 		title,
@@ -35,12 +37,12 @@ const MovieInfoComponent = () => {
 				/>
 			</div>
 			{/* Centered Box */}
-			<div className="flex  p-10 items-center h-screen relative z-10 opacity-85">
+			<div className="flex  p-14 items-center h-screen relative z-10 opacity-85">
 				{/* Overlapping Card */}
-				<div className="bg-gray-800 shadow-lg rounded-lg w-3/4 md:w-1/2 lg:w-1/3 z-20 p-4">
+				<div className="bg-gray-900 shadow-lg rounded-lg w-3/4 md:w-1/2 lg:w-1/3 z-20 p-4">
 					<div
-						className="relative w-full overflow-hidden"
-						style={{ paddingTop: "56.25%" }}
+						className="relative w-full overflow-hidden pt-56 "
+						// style={{ paddingTop: "56.25%" }}
 					>
 						{!playTrailer ? (
 							<div
@@ -88,8 +90,8 @@ const MovieInfoComponent = () => {
 							className=" opacity-90 w-20 rounded-full p-5 absolute bottom-6  right-2  z-10"
 							alt="movieapp-logo"
 						></img>
-						<div className="absolute bottom-0 left-0 w-full h-10 bg-black opacity-100"></div>
-						<div className="absolute top-0 left-0 w-full h-14 bg-black opacity-100"></div>
+						<div className="absolute bottom-0 left-0 w-full h-8 bg-black opacity-100"></div>
+						<div className="absolute top-0 left-0 w-full h-12 bg-black opacity-100"></div>
 					</div>
 					{/* Card Content */}
 					<div className="p-4">

@@ -63,10 +63,12 @@
 
 // export default AllMoviesPage
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import HeaderComponent from "../components/HeaderComponent"
 import { useSelector } from "react-redux"
-import useMovies from "../hooks/useMovies"
+// import useMovies from "../hooks/useMovies"
+import { useParams } from "react-router-dom"
+import { API_options } from "../utils/constants"
 
 // Mock movie data
 const movies = [
@@ -93,16 +95,29 @@ const movies = [
 ]
 
 function App() {
-	useMovies(
-		"https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1"
-	)
-	const movies1 = useSelector((store) => store.movies.nowPlayingMovies)
-	console.log(movies1)
-
 	const [selectContent, setSelectContent] = useState("all") // to work
 	const [selectedGenre, setSelectedGenre] = useState("all")
-	const [currentPage, setCurrentPage] = useState(1)
-	const moviesPerPage = 5
+	const [allMovies, setAllMovies] = useState([])
+	const [totalPage, setTotalPage] = useState(0)
+
+	const [page, setPage] = useState(1)
+	const params = useParams()
+	const url = `https://api.themoviedb.org/3/movie/${params?.category}?language=en-US&page=${page}`
+
+	const getMoviesCategoryWise = async () => {
+		try {
+			const res = await fetch(url, API_options)
+			const data = await res.json()
+			console.log(data)
+			setAllMovies(data.results)
+			setTotalPage(data.total_pages)
+		} catch (e) {
+			console.log(e)
+		}
+	}
+	useEffect(() => {
+		getMoviesCategoryWise()
+	}, [page])
 
 	// Filter movies based on the selected genre
 	const filteredMovies =
@@ -110,22 +125,22 @@ function App() {
 			? movies
 			: movies.filter((movie) => movie.genre === selectedGenre)
 
-	// Paginate movies
-	const indexOfLastMovie = currentPage * moviesPerPage
-	const indexOfFirstMovie = indexOfLastMovie - moviesPerPage
-	const currentMovies = filteredMovies.slice(
-		indexOfFirstMovie,
-		indexOfLastMovie
-	)
-
 	// Calculate the total number of pages
-	const totalPages = Math.ceil(filteredMovies.length / moviesPerPage)
+	const totalPages = Math.ceil(totalPage / 10)
+
+	console.log("totalPages", totalPages)
 
 	// Handle page change
-	const handlePageChange = (page) => {
-		if (page > 0 && page <= totalPages) {
-			setCurrentPage(page)
-		}
+
+	const handleNextPage = () => {
+		setPage(page + 1)
+	}
+	const handlePrevPage = () => {
+		setPage(page - 1)
+	}
+
+	const handleNumberClick = (selectedPage: any) => {
+		setPage(selectedPage)
 	}
 
 	return (
@@ -181,18 +196,20 @@ function App() {
 				</h1>
 				{/* Movie Cards */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-2">
-					{currentMovies.map((movie) => (
-						<div key={movie.id} className="bg-white p-4 rounded-lg shadow-md">
-							<h2 className="text-2xl font-bold text-gray-800">
-								{movie.title}
-							</h2>
-							<p className="text-sm text-gray-600 capitalize">{movie.genre}</p>
-						</div>
-					))}
+					{allMovies &&
+						allMovies?.map((movie) => (
+							<div key={movie.id} className="bg-white p-4 rounded-lg shadow-md">
+								<h2 className="text-2xl font-bold text-gray-800">
+									{movie?.title}
+								</h2>
+								<p className="text-sm text-gray-600 capitalize">
+									{movie?.genre}
+								</p>
+							</div>
+						))}
 				</div>
 
-				{/* Pagination */}
-				<div className="mt-52 flex justify-center mr-9">
+				{/* <div className="mt-52 flex justify-center mr-9">
 					<button
 						onClick={() => handlePageChange(currentPage - 1)}
 						className="px-4 py-2 mx-1 bg-gray-300 text-gray-800 rounded-2xl hover:bg-gray-400 disabled:opacity-50"
@@ -205,7 +222,7 @@ function App() {
 					</span>
 
 					{/* Page Numbers */}
-					{Array.from({ length: Math.min(totalPages, 10) }, (_, index) => (
+				{/* {Array.from({ length: Math.min(totalPages, 10) }, (_, index) => (
 						<button
 							key={index + 1}
 							onClick={() => handlePageChange(index + 1)}
@@ -227,7 +244,30 @@ function App() {
 					>
 						Next
 					</button>
-				</div>
+				</div>  */}
+				<ul className="flex flex-wrap list-none justify-center gap-5 my-10 font-bold text-white">
+					{page > 1 && (
+						<li onClick={handlePrevPage} className="cursor-pointer">
+							Prev
+						</li>
+					)}
+					{[...Array(Math.ceil(totalPage))].map((_, i) => (
+						<li
+							key={i}
+							onClick={() => handleNumberClick(i + 1)}
+							className={`cursor-pointer ${
+								page === i + 1 ? "font-bold text-red-600" : ""
+							}`}
+						>
+							{i + 1}
+						</li>
+					))}
+					{page < allMovies?.length && (
+						<li onClick={handleNextPage} className="cursor-pointer">
+							Next
+						</li>
+					)}
+				</ul>
 			</div>
 		</div>
 	)

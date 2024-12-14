@@ -7,7 +7,7 @@ import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 import MovieCardComponent from "./MovieCardComponent"
 import { MovieDetailTypes } from "../types/MovieDetailType"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const responsive = {
 	desktop: {
@@ -40,21 +40,24 @@ const CustomLeftArrow = ({ onClick }) => (
 
 // Custom Right Arrow
 const CustomRightArrow = ({ onClick }) => (
+	// <button
+	// 	className="absolute right-0 z-10  bg-gray-700 text-white p-3 rounded-lg hover:bg-gray-500 transition duration-200 opacity-90"
+	// 	style={{ top: "50%", transform: "translateY(-50%)" }}
+	// 	onClick={onClick}
+	// >
+	// 	<FontAwesomeIcon icon={faChevronRight} fade />
+	// </button>
 	<button
-		className="absolute right-0 z-10  bg-gray-700 text-white p-3 rounded-lg hover:bg-gray-500 transition duration-200 opacity-90"
-		style={{ top: "50%", transform: "translateY(-50%)" }}
+		className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-gray-700 text-white p-3 rounded-lg hover:bg-gray-500 transition duration-200 opacity-90"
 		onClick={onClick}
 	>
 		<FontAwesomeIcon icon={faChevronRight} fade />
 	</button>
 )
 
-const MovieList = ({ title, movies }: MovieDetailTypes) => {
-	const navigate = useNavigate()
+const MovieList = ({ title, movies, urlQuery }: MovieDetailTypes) => {
 	if (!movies) return null // early return if no movies
-	const handleSeeMoreClick = () => {
-		navigate(`/all-movies?category=${category}`) // doubt
-	}
+
 	return (
 		<div className="px-3">
 			{/* Section Title */}
@@ -62,12 +65,11 @@ const MovieList = ({ title, movies }: MovieDetailTypes) => {
 				<h1 className="text-xl py-1 ml-3 text-white font-sans font-semibold">
 					{title}
 				</h1>
-				<span
-					onclick={handleSeeMoreClick}
-					className="text-yellow-400 font-sans font-medium  py-1  mr-6 cursor-pointer hover:underline hover:text-yellow-200 transition duration-200 ease-in-out"
-				>
-					See more
-				</span>
+				<Link to={`/all-movies/${urlQuery}`}>
+					<span className="text-yellow-400 font-sans font-medium  py-1  mr-6 cursor-pointer hover:underline hover:text-yellow-200 transition duration-200 ease-in-out">
+						See more
+					</span>
+				</Link>
 			</div>
 
 			{/* Carousel */}

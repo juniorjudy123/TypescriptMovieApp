@@ -12,5 +12,5 @@ export const checkValidData = (email, password, name) => {
 	if (password.length < 6) {
 		return "Password must be at least 6 characters."
 	}
-	return "" // Return empty string when no errors.
+	return null
 }
