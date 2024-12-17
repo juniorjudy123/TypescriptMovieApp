@@ -1,11 +1,14 @@
 import { useRef, useState } from "react"
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import {
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+} from "firebase/auth"
 import { auth } from "../utils/firebase"
-import { checkValidData } from "../utils/validation"
+import { checkValidData, getErrorMessage } from "../utils/validation"
 import bgimg from "../assets/login-bg.jpg"
 import movieapplogo from "../assets/movieapplogo.jpg"
 import googleGemini from "../assets/google gemini.png"
-import { Navigate } from "react-router-dom"
+
 const Loginpage = () => {
 	const [isExpanded, setIsExpanded] = useState(false)
 	const [isSignIn, setIsSignIn] = useState(true)
@@ -21,13 +24,19 @@ const Loginpage = () => {
 	const password = useRef<HTMLInputElement | null>(null)
 	const name = useRef<HTMLInputElement | null>(null)
 
+	// Updated to handle validation for both Sign In and Sign Up cases
 	const handleButtonClick = () => {
-		const emailValue = email.current?.value
-		const passwordValue = password.current?.value
+		let emailValue = email.current?.value
+		let passwordValue = password.current?.value
 		const nameValue = name.current?.value
 
-		// Assuming checkValidData is a validation function
-		const message = checkValidData(emailValue, passwordValue, nameValue)
+		// Only validate name during Sign Up
+		const message = checkValidData(
+			emailValue,
+			passwordValue,
+			nameValue,
+			isSignIn
+		)
 		console.log(message)
 		setErrorMessage(message)
 
@@ -36,21 +45,39 @@ const Loginpage = () => {
 		if (!isSignIn) {
 			// Sign Up
 			if (emailValue && passwordValue) {
-				createUserWithEmailAndPassword(auth, emailValue, passwordValue) // Pass passwordValue, not the ref
+				createUserWithEmailAndPassword(auth, emailValue, passwordValue)
 					.then((userCredential) => {
 						const user = userCredential.user
 						console.log("User signed up:", user)
 					})
 					.catch((error) => {
 						console.log(error)
-						const errorCode = error.code
-						const errorMessage = error.message
-						console.error("Error:", errorMessage)
-						setErrorMessage(errorCode) // Set error message if signup fails
+						const displayMessage = getErrorMessage(error.code)
+						setErrorMessage(displayMessage)
 					})
+			} else {
+				setErrorMessage("Please fill in all the fields.")
 			}
 		} else {
-			// Handle Sign In here (using Firebase signInWithEmailAndPassword or similar)
+			signInWithEmailAndPassword(auth, emailValue, passwordValue)
+				.then((userCredential) => {
+					// Signed in
+					const user = userCredential.user
+					console.log("User signed in:", user)
+
+					// Clear input fields by setting their ref values to an empty string
+					email.current.value = ""
+					password.current.value = ""
+
+					// Optionally, redirect or update state
+					// For example, you can redirect the user after successful login:
+					// Navigate to another page or update the app state
+				})
+				.catch((error) => {
+					console.log(error)
+					const displayMessage = getErrorMessage(error.code)
+					setErrorMessage(displayMessage)
+				})
 		}
 	}
 
@@ -82,6 +109,7 @@ const Loginpage = () => {
 						<h1 className="font-semibold text-3xl py-4">
 							{isSignIn ? "Sign In" : "Sign Up"}
 						</h1>
+						{/* Full Name field only for Sign Up */}
 						{!isSignIn && (
 							<input
 								ref={name}
@@ -102,7 +130,7 @@ const Loginpage = () => {
 							placeholder="Password"
 							className="p-3 my-3 w-full bg-gray-900 bg-opacity-85 border border-slate-700"
 						/>
-						<p className="text-red-700 font-semibold text-lg py-2">
+						<p className="text-red-700 font-semibold text-lg py-5 px-4">
 							{errormessage}
 						</p>
 						<button
@@ -128,7 +156,7 @@ const Loginpage = () => {
 									Already Registered.
 									<span
 										onClick={toggleSignInForm}
-										className="text-white font-bold cursor-pointer hover:underline"
+										className="text-white font-bold cursor-pointer hover:underline "
 									>
 										Sign In
 									</span>

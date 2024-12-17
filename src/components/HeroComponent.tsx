@@ -11,7 +11,7 @@ const HeroComponent = () => {
 
 	if (!movies) return //early return
 
-	const playingTrailer = movies[3]
+	const playingTrailer = movies[4]
 
 	const { original_title, overview, id } = playingTrailer
 

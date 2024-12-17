@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
-import VideoBg from "../assets/bg-gradient.mov"
 import movieclapperimg from "../assets/movie.png"
 import movieapplogo from "../assets/movieapplogo.jpg"
 import { RootState } from "../utils/appStore"
@@ -27,19 +26,11 @@ const MovieInfoComponent = () => {
 	return (
 		<div className="relative">
 			{/* Full-screen video background */}
-			<div className="absolute inset-0 w-full h-full">
-				<video
-					className="w-full h-full object-cover"
-					src={VideoBg}
-					autoPlay
-					muted
-					loop
-				/>
-			</div>
+			<div className="absolute inset-0 w-full h-full bg-black"></div>
 			{/* Centered Box */}
 			<div className="flex  p-14 items-center h-screen relative z-10 opacity-85">
 				{/* Overlapping Card */}
-				<div className="bg-gray-900 shadow-lg rounded-lg w-3/4 md:w-1/2 lg:w-1/3 z-20 p-4">
+				<div className="bg-gray-800 shadow-lg rounded-lg w-3/4 md:w-1/2 lg:w-1/3 z-20 p-4">
 					<div
 						className="relative w-full overflow-hidden pt-56 "
 						// style={{ paddingTop: "56.25%" }}
