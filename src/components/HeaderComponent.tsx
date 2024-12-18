@@ -4,6 +4,9 @@ import { Link } from "react-router-dom"
 import movieapplogo from "../assets/movieapplogo.jpg"
 import { HeaderParameterTypes } from "../types/MovieDetailType"
 import useSearchMovies from "../hooks/useSearchMovies"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBell } from "@fortawesome/free-solid-svg-icons"
+import avatar from "../assets/netflix avatar.jpg"
 
 const HeaderComponent = ({
 	setSearchQuery,
@@ -29,25 +32,23 @@ const HeaderComponent = ({
 	useSearchMovies(query)
 
 	return (
-		<div className="px-5 bg-gradient-to-b from-black w-full flex justify-between fixed top-0 left-0 z-20">
+		<div className="px-3 bg-gradient-to-b from-black w-full flex justify-between fixed top-0 left-0 z-20">
 			<div className="flex">
 				<img
 					src={movieapplogo}
-					className="w-24 rounded-full p-2 mx-8 my-4 shadow-sm transition-transform transform hover:scale-110 cursor-pointer opacity-80"
+					className="w-24 rounded-full p-2 mx-8 my-2 shadow-sm transition-transform transform hover:scale-110 cursor-pointer opacity-80"
 					alt="movieapp-logo"
 					onClick={handleHomeClick}
 				/>
 				<ul className="flex space-x-7 ml-3 align items-center text-white">
-					<li className="text-white bg-gradient-to-b from-gray-100 via-gray-700 to-gray-700 hover:bg-gradient-to-r hover:from-gray-300 hover:via-gray-300 hover:to-gray-300 hover:text-black focus:ring- focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 shadow-lg shadow-gray-500/50 dark:shadow-lg dark:shadow-gray-700/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300 opacity-70">
+					<li className="text-white bg-gradient-to-b from-gray-100 via-gray-700 to-gray-700 hover:bg-gradient-to-r hover:from-gray-300 hover:via-gray-300 hover:to-gray-300 hover:text-black focus:ring- focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 shadow-lg shadow-gray-500/50 dark:shadow-lg dark:shadow-gray-700/80  rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300 opacity-70">
 						<Link to="/browse"> Home</Link>
 					</li>
-					<li className="font-medium font-sans text-sm">Movies</li>
-					<li className="font-medium font-sans text-sm">TV shows</li>
+					<li className=" font-sans text-sm">Movies</li>
+					<li className="font-sans text-sm">TV shows</li>
 					<li className="pl-4 text-xl">|</li>
 					<li>
-						<Link className="font-sans text-base font-medium">
-							Subscriptions
-						</Link>
+						<Link className="font-sans text-sm">Subscriptions</Link>
 					</li>
 				</ul>
 			</div>
@@ -83,12 +84,26 @@ const HeaderComponent = ({
 						</div>
 					</div>
 				</li>
+				<li>
+					<Link className="font-sans text-md p-1 m-2">children</Link>
+				</li>
+				<li className="p-1 m-2">
+					<FontAwesomeIcon icon={faBell} />
+				</li>
 
 				{/* Dropdown Button */}
 				<li>
-					<button
+					<img
+						src={avatar}
+						alt="avatar-img"
+						onClick={toggleDropdown}
+						className="w-12 h-12 rounded-full border-2 border-gray-500 transition-transform transform hover:scale-110 cursor-pointer opacity-80"
+					></img>
+				</li>
+				<li>
+					{/* <button
 						onClick={toggleDropdown} // Add toggle logic here
-						className="text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+						className="text-white  bg-gradient-to-b from-blue-300 via-blue-500 to-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 shadow-lg  shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-700/80 transition-all duration-300 opacity-80"
 					>
 						nimmy
 						<svg
@@ -106,13 +121,14 @@ const HeaderComponent = ({
 								d="m1 1 4 4 4-4"
 							/>
 						</svg>
-					</button>
+					</button> */}
 
 					{/* Dropdown Menu */}
 					{isOpen && (
 						<div
 							id="multi-dropdown"
-							className="z-10 absolute py-1 bg-gray-700 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+							className="z-10 absolute right-0 top-14 mx-2 my-2 p-3
+							 bg-gray-700 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
 						>
 							<ul
 								className=" text-sm text-gray-100 dark:text-gray-200 "
@@ -123,7 +139,7 @@ const HeaderComponent = ({
 										href="#"
 										className="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-600 dark:hover:text-white"
 									>
-										Dashboard
+										Account
 									</a>
 								</li>
 								<li>
@@ -135,7 +151,7 @@ const HeaderComponent = ({
 										type="button"
 										className="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100  hover:text-gray-600 dark:hover:bg-gray-600 dark:hover:text-white"
 									>
-										Profile
+										Manage Profile
 										<svg
 											className="w-2.5 h-2.5 ms-3 rtl:rotate-180"
 											aria-hidden="true"
@@ -155,7 +171,7 @@ const HeaderComponent = ({
 									{isDoubleToggleOpen && (
 										<div
 											id="doubleDropdown"
-											className="z-10   bg-gray-600 divide-y divide-gray-100  shadow w-44 dark:bg-gray-700"
+											className="z-10   bg-gray-700 divide-y divide-gray-200  shadow-xl w-44 dark:bg-gray-700"
 										>
 											<ul
 												className=" text-sm text-gray-100 dark:text-gray-200"
@@ -186,9 +202,10 @@ const HeaderComponent = ({
 										href="#"
 										className="block px-4 py-2  hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
 									>
-										Billings
+										help
 									</a>
 								</li>
+								<li className="border-t border-gray-500 border-solid"></li>
 								<li>
 									<a
 										href="#"
