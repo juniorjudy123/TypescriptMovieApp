@@ -8,6 +8,7 @@ import { checkValidData, getErrorMessage } from "../utils/validation"
 import bgimg from "../assets/login-bg.jpg"
 import movieapplogo from "../assets/movieapplogo.jpg"
 import googleGemini from "../assets/google gemini.png"
+import { useNavigate } from "react-router-dom"
 
 const Loginpage = () => {
 	const [isExpanded, setIsExpanded] = useState(false)
@@ -15,6 +16,7 @@ const Loginpage = () => {
 	const [errormessage, setErrorMessage] = useState<string | null | undefined>(
 		undefined
 	)
+	const navigate = useNavigate()
 
 	const toggleSignInForm = () => {
 		setIsSignIn(!isSignIn)
@@ -49,6 +51,7 @@ const Loginpage = () => {
 					.then((userCredential) => {
 						const user = userCredential.user
 						console.log("User signed up:", user)
+						navigate("/browse")
 					})
 					.catch((error) => {
 						console.log(error)
@@ -68,10 +71,6 @@ const Loginpage = () => {
 					// Clear input fields by setting their ref values to an empty string
 					email.current.value = ""
 					password.current.value = ""
-
-					// Optionally, redirect or update state
-					// For example, you can redirect the user after successful login:
-					// Navigate to another page or update the app state
 				})
 				.catch((error) => {
 					console.log(error)
