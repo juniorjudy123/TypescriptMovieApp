@@ -3,6 +3,7 @@ import HeaderComponent from "../components/HeaderComponent"
 import HeroComponent from "../components/HeroComponent.tsx"
 import SecondaryComponent from "../components/SecondaryComponent.tsx"
 import useMovies from "../hooks/useMovies.ts"
+import FooterComponent from "../components/FooterComponent.tsx"
 
 const MainPage = () => {
 	const [searchQuery, setSearchQuery] = useState("") // State for search query
@@ -18,13 +19,14 @@ const MainPage = () => {
 	useMovies("https://api.themoviedb.org/3/trending/movie/day?language=en-US")
 
 	return (
-		<div className="overflow-x-hidden">
+		<div className="overflow-x-hidden min-h-screen bg-black">
 			<HeaderComponent
 				setSearchQuery={setSearchQuery}
 				setIsSearch={setIsSearch}
 			/>
 			<HeroComponent />
 			<SecondaryComponent />
+			<FooterComponent />
 		</div>
 	)
 }

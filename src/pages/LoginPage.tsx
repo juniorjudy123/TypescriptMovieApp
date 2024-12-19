@@ -9,6 +9,7 @@ import bgimg from "../assets/login-bg.jpg"
 import movieapplogo from "../assets/movieapplogo.jpg"
 import googleGemini from "../assets/google gemini.png"
 import { useNavigate } from "react-router-dom"
+import FooterComponent from "../components/FooterComponent"
 
 const Loginpage = () => {
 	const [isExpanded, setIsExpanded] = useState(false)

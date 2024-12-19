@@ -23,7 +23,7 @@ const TrailerComponent = ({ movieId }) => {
 				loading="lazy"
 			></iframe>
 
-			<div className="absolute bottom-0 left-0 w-full h-14 bg-gray-400 opacity-70"></div>
+			<div className="absolute bottom-0 left-0 w-full h-14 bg-black opacity-100"></div>
 		</div>
 	)
 }
