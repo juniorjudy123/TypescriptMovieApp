@@ -14,6 +14,7 @@ import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "./utils/firebase"
 import { useDispatch } from "react-redux"
 import { addUser } from "./utils/slices/userSlice"
+import SubscriptionComponent from "./components/SubscriptionComponent"
 
 function App() {
 	const dispatch = useDispatch()
@@ -50,6 +51,10 @@ function App() {
 		{
 			path: "/all-movies/:category",
 			element: <AllMoviesPage />,
+		},
+		{
+			path: "/subscription",
+			element: <SubscriptionComponent />,
 		},
 	])
 	return (

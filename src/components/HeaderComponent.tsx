@@ -97,7 +97,7 @@ const HeaderComponent = ({
 						src={avatar}
 						alt="avatar-img"
 						onClick={toggleDropdown}
-						className="w-12 h-12 rounded-full border-2 border-gray-500 transition-transform transform hover:scale-110 cursor-pointer opacity-80"
+						className="w-10 h-10 rounded-full border-2 border-gray-500 transition-transform transform hover:scale-110 cursor-pointer opacity-90"
 					></img>
 				</li>
 				<li>
@@ -171,7 +171,7 @@ const HeaderComponent = ({
 									{isDoubleToggleOpen && (
 										<div
 											id="doubleDropdown"
-											className="z-10   bg-gray-700 divide-y divide-gray-200  shadow-xl w-44 dark:bg-gray-700"
+											className="z-10 -m-3 my-2 p-3 bg-gray-700 divide-y divide-gray-200  shadow-xl w-44 dark:bg-gray-700"
 										>
 											<ul
 												className=" text-sm text-gray-100 dark:text-gray-200"
