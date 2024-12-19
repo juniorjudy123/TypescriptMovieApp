@@ -48,7 +48,9 @@ const HeaderComponent = ({
 					<li className="font-sans text-sm">TV shows</li>
 					<li className="pl-4 text-xl">|</li>
 					<li>
-						<Link className="font-sans text-sm">Subscriptions</Link>
+						<Link to="/subscription" className="font-sans text-sm">
+							Subscriptions
+						</Link>
 					</li>
 				</ul>
 			</div>

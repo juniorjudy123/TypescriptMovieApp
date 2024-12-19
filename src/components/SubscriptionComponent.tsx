@@ -2,9 +2,9 @@ import movieapplogo from "../assets/movieapplogo.jpg"
 import FooterComponent from "./FooterComponent"
 const SubscriptionComponent = () => {
 	return (
-		<div>
-			<section className="bg-gray-900">
-				<div className="py-8 px-4 mx-auto max-w-screen-xl  min-h-screen lg:py-16 lg:px-6">
+		<div className="">
+			<section className="bg-black  ">
+				<div className="p-12 mx-auto max-w-screen-xl  min-h-screen lg:py-16 lg:px-6 bg-gray-00 w-[95%] ">
 					<div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
 						<h2 className="mb-4 text-4xl tracking-tight font-bold text-white dark:text-white">
 							Choose the plan that's right for you
@@ -26,7 +26,7 @@ const SubscriptionComponent = () => {
 							/> */}
 							<h3 className="mb-4 text-2xl font-semibold">Basic</h3>
 							<p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-								Best option for minimalists.
+								Affordable. Endless Entertainment.
 							</p>
 							<div className="flex justify-center items-baseline my-8">
 								<span className="mr-2 text-5xl font-bold">₹300</span>
@@ -93,7 +93,7 @@ const SubscriptionComponent = () => {
 						<div className="flex flex-col p-6 mx-auto max-w-lg  text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800  rounded-lg   text-center  hover:border border-slate-100 transition-transform transform hover:scale-110 cursor-pointer">
 							<h3 className="mb-4 text-2xl font-semibold">Standard</h3>
 							<p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-								For multiple users
+								Enjoy Your Movies in HD, Anytime, Anywhere
 							</p>
 							<div className="flex justify-center items-baseline my-8">
 								<span className="mr-2 text-5xl font-extrabold">₹500</span>
@@ -190,9 +190,10 @@ const SubscriptionComponent = () => {
 							</a>
 						</div>
 						<div className="flex flex-col p-6 mx-auto max-w-lg  text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800  rounded-lg  text-center transition-transform transform hover:scale-110 cursor-pointer hover:border  border-slate-100 ">
-							<h3 className="mb-4 text-2xl font-semibold">Enterprise</h3>
+							<h3 className="mb-4 text-2xl font-semibold">Premium</h3>
 							<p className="font-light text-gray-300 sm:text-lg dark:text-gray-400">
-								Best suited for the fun lovers
+								For the Movie Enthusiast – Everything You Want, Everywhere You
+								Go
 							</p>
 							<div className="flex justify-center items-baseline my-8">
 								<span className="mr-2 text-5xl font-extrabold">₹799</span>
