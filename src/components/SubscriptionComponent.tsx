@@ -1,9 +1,8 @@
-import movieapplogo from "../assets/movieapplogo.jpg"
 import FooterComponent from "./FooterComponent"
 const SubscriptionComponent = () => {
 	return (
 		<div className="">
-			<section className="bg-black  ">
+			<section className="bg-gray-900  ">
 				<div className="p-12 mx-auto max-w-screen-xl  min-h-screen lg:py-16 lg:px-6 bg-gray-00 w-[95%] ">
 					<div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
 						<h2 className="mb-4 text-4xl tracking-tight font-bold text-white dark:text-white">

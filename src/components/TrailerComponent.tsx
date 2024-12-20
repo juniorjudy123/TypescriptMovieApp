@@ -8,7 +8,7 @@ const TrailerComponent = ({ movieId }) => {
 	const trailer = useSelector((store) => store.movies?.trailerVideo)
 
 	return (
-		<div className=" w-screen relative mt-[-130px] ">
+		<div className=" w-screen relative mt-[-150px] p-2">
 			<iframe
 				className=" w-screen aspect-video  "
 				src={

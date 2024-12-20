@@ -54,38 +54,21 @@ const HeaderComponent = ({
 					</li>
 				</ul>
 			</div>
+			<div className="w-82">
+				<form className="flex flex-row  bg-gray-400">
+					<input
+						type="text"
+						className="p-3 m-2"
+						placeholder="search movies"
+					></input>
+					<button className="px-6 bg-red-700 text-white rounded-lg">
+						search
+					</button>
+				</form>
+			</div>
 
 			<ul className="flex space-x-4 ml-10 mr-20 items-center text-white">
-				<li>
-					<div className="relative flex justify-center overflow-hidden bg-gradient-to-brp-6 mr-4">
-						<div className="relative rounded-3xl pt-1 pb-1 shadow-2xl ring-1 ring-gray-300/5 sm:mx-auto sm:max-w-xl sm:px-10">
-							<div className="mx-auto max-w-md">
-								<form action="" className="relative mx-auto w-max">
-									<input
-										type="search"
-										onChange={(e) => setQuery(e.target.value)}
-										placeholder="Search for movies..."
-										className="peer p-1 cursor-pointer relative z-10 h-10 w-8 rounded-full border bg-transparent pl-10 outline-none focus:w-full focus:cursor-text focus:border-gray-200 focus:pl-16 focus:pr-4 focus:shadow-lg focus:ring-2 focus:ring-white"
-									/>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										className="absolute inset-y-0 my-auto h-10 w-12 border-r border-transparent stroke-white px-3.5 peer-focus:border-gray-200 peer-focus:stroke-gray-200"
-										fill="none"
-										viewBox="0 0 24 24"
-										stroke="currentColor"
-										stroke-width="2"
-									>
-										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-										/>
-									</svg>
-								</form>
-							</div>
-						</div>
-					</div>
-				</li>
+				<li></li>
 				<li>
 					<Link className="font-sans text-md p-1 m-2">children</Link>
 				</li>
@@ -103,28 +86,6 @@ const HeaderComponent = ({
 					></img>
 				</li>
 				<li>
-					{/* <button
-						onClick={toggleDropdown} // Add toggle logic here
-						className="text-white  bg-gradient-to-b from-blue-300 via-blue-500 to-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 shadow-lg  shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-700/80 transition-all duration-300 opacity-80"
-					>
-						nimmy
-						<svg
-							className="w-2.5 h-2.5 ms-3"
-							aria-hidden="true"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 10 6"
-						>
-							<path
-								stroke="currentColor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="m1 1 4 4 4-4"
-							/>
-						</svg>
-					</button> */}
-
 					{/* Dropdown Menu */}
 					{isOpen && (
 						<div

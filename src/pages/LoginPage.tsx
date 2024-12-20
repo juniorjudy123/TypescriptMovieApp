@@ -68,6 +68,7 @@ const Loginpage = () => {
 					// Signed in
 					const user = userCredential.user
 					console.log("User signed in:", user)
+					navigate("/browse")
 
 					// Clear input fields by setting their ref values to an empty string
 					email.current.value = ""
