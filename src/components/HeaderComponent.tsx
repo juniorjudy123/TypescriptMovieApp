@@ -7,6 +7,7 @@ import useSearchMovies from "../hooks/useSearchMovies"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBell } from "@fortawesome/free-solid-svg-icons"
 import avatar from "../assets/netflix avatar.jpg"
+import SearchBarComponent from "./SearchBarComponent"
 
 const HeaderComponent = ({
 	setSearchQuery,
@@ -52,28 +53,21 @@ const HeaderComponent = ({
 							Subscriptions
 						</Link>
 					</li>
+					<li>
+						<SearchBarComponent />
+					</li>
 				</ul>
-			</div>
-			<div className="w-82">
-				<form className="flex flex-row  bg-gray-400">
-					<input
-						type="text"
-						className="p-3 m-2"
-						placeholder="search movies"
-					></input>
-					<button className="px-6 bg-red-700 text-white rounded-lg">
-						search
-					</button>
-				</form>
 			</div>
 
 			<ul className="flex space-x-4 ml-10 mr-20 items-center text-white">
-				<li></li>
 				<li>
 					<Link className="font-sans text-md p-1 m-2">children</Link>
 				</li>
 				<li className="p-1 m-2">
-					<FontAwesomeIcon icon={faBell} />
+					<FontAwesomeIcon
+						icon={faBell}
+						className="cursor-pointer hover:animate-ringing"
+					/>
 				</li>
 
 				{/* Dropdown Button */}
