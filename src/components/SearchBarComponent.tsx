@@ -1,15 +1,15 @@
 const SearchBarComponent = () => {
 	return (
-		<div className="absolute -mt-6  ml-36 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
+		<div className="absolute -mt-9 p-2  ml-8 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
 			<div className="inline-flex flex-col justify-center relative text-gray-500 w-full">
 				<div className="relative w-2/3">
 					<input
 						type="text"
-						className="w-full p-4 pl-12 rounded-lg border-gray-600 bg-gray-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-700 focus:border-transparent text-lg opacity-90"
+						className="w-full p-4 pl-12 rounded-full border-gray-600 bg-gray-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-700 focus:border-transparent text-lg opacity-80"
 						placeholder="Search for movies..."
 					/>
 					<svg
-						className="w-7 h-7 absolute left-3 top-4 text-gray-300"
+						className="w-6 h-6 absolute left-3 top-4 text-gray-200"
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
 						viewBox="0 0 24 24"
