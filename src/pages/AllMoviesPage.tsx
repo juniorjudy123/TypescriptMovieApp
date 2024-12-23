@@ -131,7 +131,7 @@ function App() {
 					All Movies
 				</h1>
 				{/* Movie Cards */}
-				<div className="display flex flex-row flex-wrap gap-4 ">
+				<div className="display flex flex-row flex-wrap">
 					{allMovies &&
 						allMovies?.map(({ id, poster_path }) => (
 							<MovieCardComponent key={id} id={id} poster_path={poster_path} />

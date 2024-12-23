@@ -54,7 +54,7 @@ const MovieList = ({ title, movies, urlQuery }: MovieDetailTypes) => {
 	return (
 		<div className="px-3">
 			{/* Section Title */}
-			<div className="flex items-center justify-between">
+			<div className="flex items-center  justify-between">
 				<h1 className="text-xl py-1 ml-3 text-white font-sans font-semibold">
 					{title}
 				</h1>
