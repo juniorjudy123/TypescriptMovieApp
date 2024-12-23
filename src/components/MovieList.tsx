@@ -12,8 +12,8 @@ import { Link } from "react-router-dom"
 const responsive = {
 	desktop: {
 		breakpoint: { max: 3000, min: 1024 },
-		items: 7,
-		slidesToSlide: 7, // Adjust based on preference
+		items: 8,
+		slidesToSlide: 8, // Adjust based on preference
 	},
 	tablet: {
 		breakpoint: { max: 1024, min: 464 },
@@ -30,7 +30,7 @@ const responsive = {
 // Custom Left Arrow
 const CustomLeftArrow = ({ onClick }) => (
 	<button
-		className="absolute left-0 z-10 bg-gray-700 text-white p-3 rounded-lg hover:bg-gray-500 transition duration-200 opacity-90"
+		className="absolute left-0 z-10 bg-gray-700 text-white p-3  rounded-lg hover:bg-gray-500 transition duration-200 opacity-90"
 		style={{ top: "50%", transform: "translateY(-50%)" }}
 		onClick={onClick}
 	>
@@ -40,13 +40,6 @@ const CustomLeftArrow = ({ onClick }) => (
 
 // Custom Right Arrow
 const CustomRightArrow = ({ onClick }) => (
-	// <button
-	// 	className="absolute right-0 z-10  bg-gray-700 text-white p-3 rounded-lg hover:bg-gray-500 transition duration-200 opacity-90"
-	// 	style={{ top: "50%", transform: "translateY(-50%)" }}
-	// 	onClick={onClick}
-	// >
-	// 	<FontAwesomeIcon icon={faChevronRight} fade />
-	// </button>
 	<button
 		className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-gray-700 text-white p-3 rounded-lg hover:bg-gray-500 transition duration-200 opacity-90"
 		onClick={onClick}
@@ -80,8 +73,8 @@ const MovieList = ({ title, movies, urlQuery }: MovieDetailTypes) => {
 					responsive={responsive}
 					ssr={true}
 					infinite={true}
-					autoPlay={true}
-					autoPlaySpeed={8000}
+					autoPlay={false}
+					autoPlaySpeed={12000}
 					keyBoardControl={true}
 					customTransition="all .5"
 					transitionDuration={1000}

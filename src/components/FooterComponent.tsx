@@ -1,6 +1,6 @@
 const FooterComponent = () => {
 	return (
-		<div className="overflow-y-hidden -mt-12  ">
+		<div className="overflow-y-hidden -mt-5  ">
 			<footer className=" bg-gray-900 shadow p-4 dark:bg-gray-900 w-full z-10">
 				<div className="mx-auto w-full p-2 md:flex md:items-center md:justify-between">
 					<span className="text-sm text-gray-300 sm:text-center dark:text-gray-400">

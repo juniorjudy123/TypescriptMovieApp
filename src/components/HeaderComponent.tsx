@@ -46,7 +46,7 @@ const HeaderComponent = ({
 						<Link to="/browse"> Home</Link>
 					</li>
 					<li className=" font-sans text-sm">Movies</li>
-					{/* <li className="font-sans text-sm">TV shows</li> */}
+					<li className="font-sans text-sm">TV shows</li>
 					<li>
 						<Link to="/subscription" className="font-sans text-sm">
 							Subscriptions
