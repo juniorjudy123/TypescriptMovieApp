@@ -64,11 +64,12 @@ const HeaderComponent = ({
 				<li>
 					<Link className="font-sans text-md p-1 m-2">children</Link>
 				</li>
-				<li className="p-1 m-2">
+				<li className="p-1 m-2 flex ">
 					<FontAwesomeIcon
 						icon={faBell}
 						className="cursor-pointer hover:animate-ringing"
 					/>
+					<h2 className="-mt-3 font-sans">3</h2>
 				</li>
 
 				{/* Dropdown Button */}

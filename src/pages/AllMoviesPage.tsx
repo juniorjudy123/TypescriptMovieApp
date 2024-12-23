@@ -58,8 +58,8 @@ function App() {
 	// Filter movies based on the selected genre
 	// const filteredMovies =
 	// 	selectedGenre === "all"
-	// 		? movies
-	// 		: movies.filter((movie) => movie.genre === selectedGenre)
+	// 		? allMovies
+	// 		: allMovies.filter((movie) => movie.genre === selectedGenre)
 
 	// Calculate the total number of pages
 	const totalPages = Math.ceil(totalPage / 10)
