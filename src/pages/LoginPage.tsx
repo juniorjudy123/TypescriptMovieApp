@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
+	updateProfile,
 } from "firebase/auth"
 import { auth } from "../utils/firebase"
 import { checkValidData, getErrorMessage } from "../utils/validation"
@@ -52,7 +53,16 @@ const Loginpage = () => {
 					.then((userCredential) => {
 						const user = userCredential.user
 						console.log("User signed up:", user)
-						navigate("/browse")
+						updateProfile(user, {
+							displayName: nameValue,
+							// photoURL: "https://example.com/jane-q-user/profile.jpg",
+						})
+							.then(() => {
+								navigate("/browse")
+							})
+							.catch((error) => {
+								setErrorMessage(error.message)
+							})
 					})
 					.catch((error) => {
 						console.log(error)

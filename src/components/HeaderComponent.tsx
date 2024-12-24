@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import movieapplogo from "../assets/movieapplogo.jpg"
 import { HeaderParameterTypes } from "../types/MovieDetailType"
-import useSearchMovies from "../hooks/useSearchMovies"
+// import useSearchMovies from "../hooks/useSearchMovies"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBell } from "@fortawesome/free-solid-svg-icons"
 import avatar from "../assets/netflix avatar.jpg"
 import SearchBarComponent from "./SearchBarComponent"
+import { auth } from "../utils/firebase"
+import { signOut } from "firebase/auth"
 
 const HeaderComponent = ({
 	setSearchQuery,
@@ -16,7 +18,7 @@ const HeaderComponent = ({
 	const navigate = useNavigate()
 	const [isOpen, setIsOpen] = useState(false)
 	const [isDoubleToggleOpen, setIsDoubleToggleOpen] = useState(false)
-	const [query, setQuery] = useState("")
+	// const [query, setQuery] = useState("")
 
 	const handleHomeClick = () => {
 		navigate("/browse")
@@ -30,7 +32,18 @@ const HeaderComponent = ({
 		setIsDoubleToggleOpen(!isDoubleToggleOpen)
 	}
 
-	useSearchMovies(query)
+	// useSearchMovies(query)
+
+	const handleSignOut = () => {
+		signOut(auth)
+			.then(() => {
+				navigate("/")
+			})
+			.catch((error) => {
+				console.log(error)
+				navigate("/error")
+			})
+	}
 
 	return (
 		<div className="px-3 bg-gradient-to-b from-black w-full flex justify-between fixed top-0 left-0 z-20">
@@ -167,6 +180,7 @@ const HeaderComponent = ({
 								<li className="border-t border-gray-500 border-solid"></li>
 								<li>
 									<a
+										onClick={handleSignOut}
 										href="#"
 										className="block px-4 py-2  hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
 									>
