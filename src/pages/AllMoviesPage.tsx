@@ -126,12 +126,12 @@ function App() {
 			<div className="border-l border-black "></div>
 
 			{/* Movie List Section */}
-			<div className="flex-1 p-16 mt-10 ">
+			<div className="flex-1 p-14 mt-8  ">
 				<h1 className="text-4xl  text-white font-semibold  mb-8 text-center">
 					All Movies
 				</h1>
 				{/* Movie Cards */}
-				<div className="display flex flex-row flex-wrap">
+				<div className="display flex flex-row flex-wrap ">
 					{allMovies &&
 						allMovies?.map(({ id, poster_path }) => (
 							<MovieCardComponent key={id} id={id} poster_path={poster_path} />
